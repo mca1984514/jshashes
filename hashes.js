@@ -295,10 +295,11 @@
       this.encode = function(input) {
         var i, j, triplet,
           output = '',
-          len = input.length;
+          len;
 
         pad = pad || '=';
         input = (utf8) ? utf8Encode(input) : input;
+        len = input.length;
 
         for (i = 0; i < len; i += 3) {
           triplet = (input.charCodeAt(i) << 16) | (i + 1 < len ? input.charCodeAt(i + 1) << 8 : 0) | (i + 2 < len ? input.charCodeAt(i + 2) : 0);
